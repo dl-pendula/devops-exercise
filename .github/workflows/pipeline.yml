@@ -1,8 +1,10 @@
+name: CI
+
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 env:
   NODE_VERSION: '14.x'                # set this to the node version to use
@@ -55,7 +57,8 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GHCR_PAT }}
     
-    - uses: actions/github-script@v6
+    - name: Debug
+      uses: actions/github-script@v6
       with:
         script: ls -all 
 
