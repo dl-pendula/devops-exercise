@@ -55,6 +55,10 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GHCR_PAT }}
     
+    - uses: actions/github-script@v6
+      with:
+        script: ls -all 
+
     - name: Build image and push to GitHub Container Registry
       uses: docker/build-push-action@v2
       with:
