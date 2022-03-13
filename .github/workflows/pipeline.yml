@@ -57,10 +57,8 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GHCR_PAT }}
     
-    - name: Debug
-      uses: actions/github-script@v6
-      with:
-        script: ls -all 
+    - name: Display structure of downloaded files
+      run: ls -R
 
     - name: Build image and push to GitHub Container Registry
       uses: docker/build-push-action@v2
