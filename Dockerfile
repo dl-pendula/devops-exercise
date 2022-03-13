@@ -1,5 +1,5 @@
 FROM node:14
 WORKDIR /app
-COPY ./dist/ /app/
+COPY ./ /app/
 EXPOSE 80
 CMD ["yarn", "start"]
