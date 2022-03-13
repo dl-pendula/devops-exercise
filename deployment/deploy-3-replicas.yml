@@ -16,11 +16,9 @@ spec:
       containers:
       - name: devops-exercise
         image: ghcr.io/bcruik/devops-exercise/devops-exercise:17
-        env:
-        - name: DB_URL
-          value: "postgresql://devops:TZzXTzTZzXTz@rds.cqz7muyupn1s.ap-southeast-2.rds.amazonaws.com:5432/thedb"
-        - name: PORT
-          value: "80"
+        envFrom:
+        - secretRef:
+            name: dburl
 ---
 apiVersion: v1
 kind: Service
